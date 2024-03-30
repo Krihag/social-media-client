@@ -10,10 +10,18 @@ global.fetch = jest.fn().mockResolvedValue({
   }),
 });
 
-jest.mock("../storage/index.js", () => ({
-  save: jest.fn(),
-  load: jest.fn(),
-}));
+global.localStorage = {
+  setItem: jest.fn(function (key, value) {
+    this[key] = value;
+  }),
+};
+
+describe("SaveLocalStorage", () => {
+  it("should save to local storage", () => {
+    storage.save("key", "value");
+    expect(localStorage.key).toEqual(JSON.stringify("value"));
+  });
+});
 
 jest.mock("../api/constants.js", () => ({
   apiPath: "https://example.com/api",
@@ -35,12 +43,14 @@ describe("login", () => {
       }
     );
 
-    expect(storage.save).toHaveBeenCalledWith("token", "test");
-    expect(storage.save).toHaveBeenCalledWith("profile", {
-      username: "test",
-      email: "test@noroff.no",
-    });
+    expect(localStorage.token).toEqual(JSON.stringify("test"));
+    expect(localStorage.profile).toEqual(
+      JSON.stringify({
+        username: "test",
+        email: "test@noroff.no",
+      })
+    );
 
-    expect(storage.save).toHaveBeenCalledTimes(2);
+    expect(localStorage.setItem).toHaveBeenCalledTimes(3);
   });
 });
