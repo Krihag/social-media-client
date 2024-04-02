@@ -92,9 +92,14 @@ describe("wrongLogin", () => {
     cy.wait("@loginRequest").its("response.statusCode").should("eq", 401);
   });
 
-  it("shows an error message", () => {
+  it("displays alert with specific message", () => {
+    cy.getLoginForm();
+    cy.loginRequest("invalidemail@example.com", "invalidpassword");
+
+    // expect gave me errors so I used assert instead
     cy.on("window:alert", (err) => {
-      expect(err).to.contain(
+      assert.include(
+        err,
         "Either your username was not found or your password is incorrect"
       );
     });
