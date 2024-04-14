@@ -6,6 +6,8 @@ This assignment focuses on establishing an effective workflow and writing tests 
 
 ![Deploy static content to Pages](https://github.com/Krihag/social-media-client/actions/workflows/pages.yml/badge.svg)
 
+[![Automated Unit Testing](https://github.com/Krihag/social-media-client/actions/workflows/unit-test.yml/badge.svg)](https://github.com/Krihag/social-media-client/actions/workflows/unit-test.yml)
+
 
 ## Setup instructrions:
 
