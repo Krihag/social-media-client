@@ -8,6 +8,8 @@ This assignment focuses on establishing an effective workflow and writing tests 
 
 [![Automated Unit Testing](https://github.com/Krihag/social-media-client/actions/workflows/unit-test.yml/badge.svg)](https://github.com/Krihag/social-media-client/actions/workflows/unit-test.yml)
 
+[![Automated Unit Testing](https://github.com/Krihag/social-media-client/actions/workflows/unit-test.yml/badge.svg)](https://github.com/Krihag/social-media-client/actions/workflows/unit-test.yml)
+
 
 ## Setup instructrions:
 
